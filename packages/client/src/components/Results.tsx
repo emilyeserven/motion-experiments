@@ -8,7 +8,7 @@ export function Results({
   compChoice,
 }: ResultsProps) {
   return (
-    <>
+    <div className="flex flex-grow-1 flex-col">
       <h2 className="mb-4 text-2xl font-bold">Results</h2>
       <div className="mb-2.5">
         User Choice was:
@@ -20,6 +20,6 @@ export function Results({
         {" "}
         <span id="compChoice">{compChoice}</span>
       </div>
-    </>
+    </div>
   );
 }

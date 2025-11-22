@@ -12,8 +12,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    userChoice: "userChoice",
-    compChoice: "compChoice",
+    userChoice: "rock",
+    compChoice: "rock",
+    userScore: 0,
+    compScore: 0,
+  },
+};
+
+export const Hidden: Story = {
+  args: {
+    userChoice: "",
+    compChoice: "",
     userScore: 0,
     compScore: 0,
   },

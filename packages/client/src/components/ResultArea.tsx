@@ -22,7 +22,10 @@ export function ResultArea({
 
   return (
     <motion.div
-      className="mx-2 mt-8"
+      className={`
+        mx-2 mt-8 flex w-full flex-col gap-8
+        sm:flex-row sm:gap-2
+      `}
       initial={{
         opacity: 0,
       }}
@@ -33,29 +36,14 @@ export function ResultArea({
         },
       }}
     >
-      <div
-        className={`
-          inline-block w-[49%] align-top
-          max-[800px]:block max-[800px]:w-full
-        `}
-      >
-        <Results
-          userChoice={userChoice}
-          compChoice={compChoice}
-        />
-      </div>
-
-      <div
-        className={`
-          mt-0 inline-block w-[49%] align-top
-          max-[800px]:mt-8 max-[800px]:block max-[800px]:w-full
-        `}
-      >
-        <Scores
-          userScore={userScore}
-          compScore={compScore}
-        />
-      </div>
+      <Results
+        userChoice={userChoice}
+        compChoice={compChoice}
+      />
+      <Scores
+        userScore={userScore}
+        compScore={compScore}
+      />
     </motion.div>
   );
 }
