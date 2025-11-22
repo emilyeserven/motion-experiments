@@ -2,7 +2,7 @@ type OptionType = "rock" | "paper" | "scissors";
 
 interface GameButtonParams {
   type: OptionType;
-  onClick: (_selection: OptionType) => void;
+  onClick: (selection: OptionType) => void;
 }
 
 export function GameButton({

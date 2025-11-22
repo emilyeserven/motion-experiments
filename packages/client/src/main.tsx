@@ -4,16 +4,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { createRoot } from "react-dom/client";
 
-import { routeTree } from "./routeTree.gen.ts";
-
 import { ThemeProvider } from "@/context/ThemeProvider.tsx";
+
+import { routeTree } from "./routeTree.gen.ts";
 
 const router = createRouter({
   routeTree,
 });
 
 declare module "@tanstack/react-router" {
-  // eslint-disable-next-line no-unused-vars -- We need this or else
   interface Register {
     router: typeof router;
   }
@@ -21,6 +20,7 @@ declare module "@tanstack/react-router" {
 
 const queryClient = new QueryClient();
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
   const root = createRoot(rootElement);
