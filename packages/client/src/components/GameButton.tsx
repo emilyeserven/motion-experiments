@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 type OptionType = "rock" | "paper" | "scissors";
 
 interface GameButtonParams {
@@ -22,7 +24,7 @@ export function GameButton({
   };
 
   return (
-    <div
+    <motion.div
       id={type}
       className={`
         mx-[1%] inline-flex cursor-pointer flex-col gap-2 rounded-lg border-2
@@ -31,6 +33,17 @@ export function GameButton({
         hover:border-gray-400 hover:shadow-md
       `}
       onClick={() => onClick(type)}
+      initial={{
+        opacity: 0.95,
+      }}
+      whileHover={{
+        scale: 1.01,
+        opacity: 1,
+        rotate: Math.random(),
+        transition: {
+          duration: 0.1,
+        },
+      }}
     >
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
@@ -39,6 +52,6 @@ export function GameButton({
       </div>
 
       <span className="relative bottom-0 text-[25px] capitalize">{type}</span>
-    </div>
+    </motion.div>
   );
 }
