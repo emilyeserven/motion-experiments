@@ -5,6 +5,12 @@ import tseslint from "typescript-eslint";
 export default tseslint.config([
   ...emstackConfig,
   {
+    files: ["**/*.{ts,tsx}"],
+    ignores: [
+      "packages/middleware/src/**/*.ts",
+      "packages/**/src/**/*.test.{js,ts}",
+      "packages/client/server.js",
+    ],
     rules: {
       "no-unused-vars": "off",
 
