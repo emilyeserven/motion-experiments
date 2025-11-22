@@ -1,9 +1,13 @@
+type OptionType = "rock" | "paper" | "scissors";
+
 interface GameButtonParams {
-  type: "rock" | "paper" | "scissors";
+  type: OptionType;
+  onClick: (_selection: OptionType) => void;
 }
 
 export function GameButton({
   type,
+  onClick,
 }: GameButtonParams) {
   return (
     <div
@@ -14,6 +18,7 @@ export function GameButton({
         duration-200 ease-in-out
         hover:border-[#0080ff]
       `}
+      onClick={() => onClick(type)}
     >
       <img
         src={`/${type}.png`}

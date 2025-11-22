@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { createFileRoute } from "@tanstack/react-router";
 
 import { GameButton } from "@/components/GameButton";
@@ -6,7 +8,91 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+type gameCheckType = Record<string, Record<string, [string, string]>>;
+
 function Index() {
+  const [userScore, setUserScore] = useState(0);
+  const [compScore, setCompScore] = useState(0);
+  const [userChoice, setUserChoice] = useState("");
+  const [compChoice, setCompChoice] = useState("");
+
+  const gameCheck: gameCheckType = {
+    rock: {
+      paper: ["rock wins", "user"],
+      scissors: ["paper wins", "comp"],
+    },
+    paper: {
+      rock: ["paper wins", "user"],
+      scissors: ["scissors win", "comp"],
+    },
+    scissors: {
+      paper: ["rock wins", "comp"],
+      rock: ["scissors win", "user"],
+    },
+  };
+
+  const compare = (choice1: string, choice2: string) => {
+    if (!(choice1 in gameCheck) || !(choice2 in gameCheck)) {
+      return ["Invalid arguments passed", "tie"];
+    }
+    if (choice1 === choice2) {
+      return ["The result is a tie!", "tie"];
+    }
+    return gameCheck[choice1][choice2];
+  };
+
+  const computerRoll = function () {
+    console.log("2. Computer is rolling.");
+    const computerChoice = Math.random();
+    let computerReturn = "";
+    // Above will select a random number between 0 and 1 and store that number in the computerChoice variable.
+    // Below if statement will assign Rock, Paper, or Scissors to the number.
+    if (computerChoice < 0.34) {
+      computerReturn = "rock";
+      console.log("3a. Math is " + computerChoice);
+    }
+    else if (computerChoice <= 0.67) {
+      computerReturn = "paper";
+      console.log("3b. Math is " + computerChoice);
+    }
+    else {
+      computerReturn = "scissors";
+      console.log("3c. Math is " + computerChoice);
+    }
+    console.log("3sub. Computer Choice is " + computerChoice);
+    // Return the string as the variable computerChoice.
+    return computerReturn;
+  };
+
+  const userChoiceFunc = function (choice: string) {
+    // set the function input to be the variable userChoice.
+    const userChoice = choice;
+    console.log("1. User Choice is " + choice);
+    // assign the returned value of the computerRoll function to the variable computerChoice.
+    const computerChoice = computerRoll();
+
+    const result = compare(userChoice, computerChoice);
+    // Compare the two scores with the compare function.
+    console.log(compare(userChoice, computerChoice));
+    console.log("6. " + result[0]);
+
+    setCompChoice(computerChoice);
+    setUserChoice(userChoice);
+
+    if (result[1] === "user") {
+      setUserScore(userScore + 1);
+    }
+    else if (result[1] === "comp") {
+      setCompScore(compScore + 1);
+    }
+    else if (result[1] === "tie") {
+      console.log("7c. It was a tie!");
+    }
+
+    console.log("User Score is now " + userScore + ", while Computer Score is now " + compScore + ".");
+    // Modify the cached elements (at top) to the new values.
+  };
+
   return (
     <div className="font-sans text-gray-900">
       <div
@@ -18,9 +104,18 @@ function Index() {
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
 
         <div className="w-full">
-          <GameButton type="rock" />
-          <GameButton type="paper" />
-          <GameButton type="scissors" />
+          <GameButton
+            type="rock"
+            onClick={userChoiceFunc}
+          />
+          <GameButton
+            type="paper"
+            onClick={userChoiceFunc}
+          />
+          <GameButton
+            type="scissors"
+            onClick={userChoiceFunc}
+          />
 
         </div>
 
@@ -34,11 +129,11 @@ function Index() {
             <h2 className="mb-4 text-2xl font-bold">Results</h2>
             <div className="mb-2.5">
               <span className="font-bold">You: </span>
-              <span id="userPick" />
+              {userChoice}
             </div>
             <div className="mb-2.5">
               <span className="font-bold">Computer: </span>
-              <span id="compPick" />
+              {compChoice}
             </div>
 
             <div className="invisible clear-both block h-0" />
@@ -58,12 +153,12 @@ function Index() {
             <div className="mb-2.5">
               User Score is now:
               {" "}
-              <span id="userScore">0</span>
+              <span id="userScore">{userScore}</span>
             </div>
             <div className="mb-2.5">
               Computer Score is now:
               {" "}
-              <span id="compScore">0</span>
+              <span id="compScore">{compScore}</span>
             </div>
           </div>
         </div>
