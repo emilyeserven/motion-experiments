@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { GameButton } from "@/components/GameButton";
+import { ResultArea } from "@/components/ResultArea";
 import { compare } from "@/lib/compare";
 import { computerRoll } from "@/lib/computerRoll";
 
@@ -62,49 +63,12 @@ function Index() {
 
         </div>
 
-        <div className="mt-8">
-          <div
-            className={`
-              inline-block w-[49%] align-top
-              max-[800px]:block max-[800px]:w-full
-            `}
-          >
-            <h2 className="mb-4 text-2xl font-bold">Results</h2>
-            <div className="mb-2.5">
-              <span className="font-bold">You: </span>
-              {userChoice}
-            </div>
-            <div className="mb-2.5">
-              <span className="font-bold">Computer: </span>
-              {compChoice}
-            </div>
-
-            <div className="invisible clear-both block h-0" />
-
-            <div className="mt-2.5">
-              <span id="overallResult">Click for a result!</span>
-            </div>
-          </div>
-
-          <div
-            className={`
-              mt-0 inline-block w-[49%] align-top
-              max-[800px]:mt-8 max-[800px]:block max-[800px]:w-full
-            `}
-          >
-            <h2 className="mb-4 text-2xl font-bold">Score</h2>
-            <div className="mb-2.5">
-              User Score is now:
-              {" "}
-              <span id="userScore">{userScore}</span>
-            </div>
-            <div className="mb-2.5">
-              Computer Score is now:
-              {" "}
-              <span id="compScore">{compScore}</span>
-            </div>
-          </div>
-        </div>
+        <ResultArea
+          userChoice={userChoice}
+          compChoice={compChoice}
+          userScore={userScore}
+          compScore={compScore}
+        />
 
         <div className="mt-5 w-full text-center">
           <sub className="inline-block">
