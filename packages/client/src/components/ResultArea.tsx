@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 import { Results } from "@/components/Results";
 import { Scores } from "@/components/Scores";
 
@@ -19,7 +21,18 @@ export function ResultArea({
   }
 
   return (
-    <div className="mt-8">
+    <motion.div
+      className="mx-2 mt-8"
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+    >
       <div
         className={`
           inline-block w-[49%] align-top
@@ -43,6 +56,6 @@ export function ResultArea({
           compScore={compScore}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
