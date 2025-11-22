@@ -3,8 +3,8 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { GameButton } from "@/components/GameButton";
+import { compare } from "@/lib/compare";
 import { computerRoll } from "@/lib/computerRoll";
-import { gameCheck } from "@/lib/gameCheck";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,27 +16,14 @@ function Index() {
   const [userChoice, setUserChoice] = useState("");
   const [compChoice, setCompChoice] = useState("");
 
-  const compare = (choice1: string, choice2: string) => {
-    if (!(choice1 in gameCheck) || !(choice2 in gameCheck)) {
-      return ["Invalid arguments passed", "tie"];
-    }
-    if (choice1 === choice2) {
-      return ["The result is a tie!", "tie"];
-    }
-    return gameCheck[choice1][choice2];
-  };
-
   const userChoiceFunc = function (choice: string) {
     // set the function input to be the variable userChoice.
     const userChoice = choice;
-    console.log("1. User Choice is " + choice);
+
     // assign the returned value of the computerRoll function to the variable computerChoice.
     const computerChoice = computerRoll();
 
     const result = compare(userChoice, computerChoice);
-    // Compare the two scores with the compare function.
-    console.log(compare(userChoice, computerChoice));
-    console.log("6. " + result[0]);
 
     setCompChoice(computerChoice);
     setUserChoice(userChoice);
@@ -47,12 +34,6 @@ function Index() {
     else if (result[1] === "comp") {
       setCompScore(compScore + 1);
     }
-    else if (result[1] === "tie") {
-      console.log("7c. It was a tie!");
-    }
-
-    console.log("User Score is now " + userScore + ", while Computer Score is now " + compScore + ".");
-    // Modify the cached elements (at top) to the new values.
   };
 
   return (
