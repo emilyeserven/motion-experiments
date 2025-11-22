@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { GameButton } from "@/components/GameButton";
+
 export const Route = createFileRoute("/")({
   component: Index,
 });
@@ -16,59 +18,10 @@ function Index() {
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
 
         <div className="w-full">
-          <div
-            id="rock"
-            className={`
-              mx-[1%] inline-block w-[28%] cursor-pointer border-2 border-white
-              bg-[#efefef] px-[1%] py-[2%] text-center align-top transition-all
-              duration-200 ease-in-out
-              hover:border-[#0080ff]
-            `}
-          >
-            <img
-              src="/rock.png"
-              alt="Rock"
-              className="mb-5 inline-block h-20 w-20"
-            />
-            <br />
-            <span className="relative bottom-0 text-[25px]">Rock</span>
-          </div>
+          <GameButton type="rock" />
+          <GameButton type="paper" />
+          <GameButton type="scissors" />
 
-          <div
-            id="paper"
-            className={`
-              mx-[1%] inline-block w-[28%] cursor-pointer border-2 border-white
-              bg-[#efefef] px-[1%] py-[2%] text-center align-top transition-all
-              duration-200 ease-in-out
-              hover:border-[#0080ff]
-            `}
-          >
-            <img
-              src="/paper.png"
-              alt="Paper"
-              className="mb-5 inline-block h-20 w-20"
-            />
-            <br />
-            <span className="relative bottom-0 text-[25px]">Paper</span>
-          </div>
-
-          <div
-            id="scissors"
-            className={`
-              mx-[1%] inline-block w-[28%] cursor-pointer border-2 border-white
-              bg-[#efefef] px-[1%] py-[2%] text-center align-top transition-all
-              duration-200 ease-in-out
-              hover:border-[#0080ff]
-            `}
-          >
-            <img
-              src="/scissor.png"
-              alt="Scissors"
-              className="mb-5 inline-block h-20 w-20"
-            />
-            <br />
-            <span className="relative bottom-0 text-[25px]">Scissor</span>
-          </div>
         </div>
 
         <div className="mt-8">
