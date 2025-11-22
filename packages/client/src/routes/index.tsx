@@ -3,33 +3,17 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { GameButton } from "@/components/GameButton";
+import { gameCheck } from "@/lib/gameCheck";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-type gameCheckType = Record<string, Record<string, [string, string]>>;
 
 function Index() {
   const [userScore, setUserScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
   const [userChoice, setUserChoice] = useState("");
   const [compChoice, setCompChoice] = useState("");
-
-  const gameCheck: gameCheckType = {
-    rock: {
-      paper: ["rock wins", "user"],
-      scissors: ["paper wins", "comp"],
-    },
-    paper: {
-      rock: ["paper wins", "user"],
-      scissors: ["scissors win", "comp"],
-    },
-    scissors: {
-      paper: ["rock wins", "comp"],
-      rock: ["scissors win", "user"],
-    },
-  };
 
   const compare = (choice1: string, choice2: string) => {
     if (!(choice1 in gameCheck) || !(choice2 in gameCheck)) {
