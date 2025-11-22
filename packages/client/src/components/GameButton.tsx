@@ -44,6 +44,13 @@ export function GameButton({
           duration: 0.1,
         },
       }}
+      whileTap={{
+        scale: 1.02,
+        rotate: -1 * Math.random() * 2,
+        transition: {
+          duration: 0.05,
+        },
+      }}
     >
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
