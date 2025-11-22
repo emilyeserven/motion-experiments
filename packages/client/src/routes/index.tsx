@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -17,7 +17,7 @@ function Index() {
   const [userChoice, setUserChoice] = useState("");
   const [compChoice, setCompChoice] = useState("");
 
-  const userChoiceFunc = function (choice: string) {
+  const userChoiceFunc = useCallback((choice: string) => {
     // set the function input to be the variable userChoice.
     const userChoice = choice;
 
@@ -35,7 +35,7 @@ function Index() {
     else if (result[1] === "comp") {
       setCompScore(compScore + 1);
     }
-  };
+  }, [compScore, userScore]);
 
   return (
     <div className="font-sans text-gray-900">
