@@ -19,89 +19,6 @@ export function About() {
     queryFn: () => fetchTest(),
   });
 
-  // Animation sample code from: https://motion.dev/docs/react-layout-animations?platform=react
-
-  const container: React.CSSProperties = {
-    width: 480,
-    height: "60vh",
-    maxHeight: 360,
-    borderRadius: 10,
-    background: "white",
-    overflow: "hidden",
-    boxShadow:
-            "0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075)",
-    display: "flex",
-    flexDirection: "column",
-  };
-
-  const nav: React.CSSProperties = {
-    background: "#fdfdfd",
-    padding: "5px 5px 0",
-    borderRadius: "10px",
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderBottom: "1px solid #eeeeee",
-    height: 44,
-  };
-
-  const tabsStyles: React.CSSProperties = {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-    fontWeight: 500,
-    fontSize: 14,
-  };
-
-  const tabsContainer: React.CSSProperties = {
-    ...tabsStyles,
-    display: "flex",
-    width: "100%",
-  };
-
-  const tab: React.CSSProperties = {
-    ...tabsStyles,
-    borderRadius: 5,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    width: "100%",
-    padding: "10px 15px",
-    position: "relative",
-    background: "white",
-    cursor: "pointer",
-    height: 24,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flex: 1,
-    minWidth: 0,
-    userSelect: "none",
-    color: "#0f1115",
-  };
-
-  const underline: React.CSSProperties = {
-    position: "absolute",
-    bottom: -2,
-    left: 0,
-    right: 0,
-    height: 2,
-    background: "var(--accent)",
-  };
-
-  const iconContainer: React.CSSProperties = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 1,
-  };
-
-  const icon: React.CSSProperties = {
-    fontSize: 128,
-  };
-
-  /**
-     * ==============   Data   ================
-     */
-
   const allIngredients = [
     {
       icon: "🍅",
@@ -149,9 +66,18 @@ export function About() {
       </p>
       {data && data.item}
 
-      <div style={container}>
-        <nav style={nav}>
-          <ul style={tabsContainer}>
+      <div
+        className={`
+          flex h-[60vh] max-h-[360px] w-[480px] flex-col overflow-hidden
+          rounded-xl bg-white shadow-2xl
+        `}
+      >
+        <nav
+          className={`
+            h-11 rounded-t-xl border-b border-gray-200 bg-neutral-50 p-1 pt-1.5
+          `}
+        >
+          <ul className="m-0 flex w-full list-none p-0 text-sm font-medium">
             {tabs.map(item => (
               <motion.li
                 key={item.label}
@@ -160,14 +86,20 @@ export function About() {
                   backgroundColor:
                                     item === selectedTab ? "#eee" : "#eee0",
                 }}
-                style={tab}
+                className={`
+                  relative flex h-10 w-full min-w-0 flex-1 cursor-pointer
+                  list-none items-center justify-between rounded-t-lg bg-white
+                  p-2.5 text-gray-900 select-none
+                `}
                 onClick={() => setSelectedTab(item)}
               >
                 {`${item.icon} ${item.label}`}
                 {item === selectedTab
                   ? (
                     <motion.div
-                      style={underline}
+                      className={`
+                        absolute inset-x-0 bottom-[-2px] h-[2px] bg-blue-500
+                      `}
                       layoutId="underline"
                       id="underline"
                     />
@@ -177,7 +109,7 @@ export function About() {
             ))}
           </ul>
         </nav>
-        <main style={iconContainer}>
+        <main className="flex flex-1 items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedTab ? selectedTab.label : "empty"}
@@ -196,7 +128,7 @@ export function About() {
               transition={{
                 duration: 0.2,
               }}
-              style={icon}
+              className="text-[128px]"
             >
               {selectedTab ? selectedTab.icon : "😋"}
             </motion.div>
