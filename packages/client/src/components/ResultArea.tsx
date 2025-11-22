@@ -14,6 +14,10 @@ export function ResultArea({
   compChoice,
   compScore,
 }: ResultAreaProps) {
+  if (userChoice === "" && compChoice === "") {
+    return <></>;
+  }
+
   return (
     <div className="mt-8">
       <div
