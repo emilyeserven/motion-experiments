@@ -1,7 +1,6 @@
 import type { OptionType } from "@/components/GameButton";
 
 import { SwapIcon } from "@/components/SwapIcon";
-import { itemEmoji } from "@/lib/itemEmoji";
 
 interface ResultsProps {
   userChoice?: OptionType;
@@ -19,7 +18,7 @@ export function Results({
         <div className="mb-2.5">
           User Choice was:
           {" "}
-          <span id="userChoice">{itemEmoji(userChoice)}</span>
+          <SwapIcon icon={userChoice} />
         </div>
       )}
       {compChoice && (
