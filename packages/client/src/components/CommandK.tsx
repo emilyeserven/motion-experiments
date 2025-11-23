@@ -28,6 +28,7 @@ export function CommandK({
   isResultsShown,
 }: CommandKProps) {
   const [open, setOpen] = useState(false);
+  const [isKeepMenuOpen, setIsKeepMenuOpen] = useState(false);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -42,17 +43,30 @@ export function CommandK({
 
   function handleSelection(choice: OptionType) {
     choiceFunc(choice);
-    setOpen(false);
+    if (!isKeepMenuOpen) {
+      setOpen(false);
+    }
   }
 
   function handleCardsShownClicked() {
     setIsCardsShown(!isCardsShown);
-    setOpen(false);
+    if (!isKeepMenuOpen) {
+      setOpen(false);
+    }
   }
 
   function handleResultsShownClicked() {
     setIsResultsShown(!isResultsShown);
-    setOpen(false);
+    if (!isKeepMenuOpen) {
+      setOpen(false);
+    }
+  }
+
+  function handleKeepMenuOpen() {
+    setIsKeepMenuOpen(!isKeepMenuOpen);
+    if (isKeepMenuOpen) {
+      setOpen(false);
+    }
   }
 
   return (
@@ -72,6 +86,7 @@ export function CommandK({
         <CommandGroup heading="Settings">
           <CommandItem onSelect={() => handleCardsShownClicked()}>{isCardsShown ? "Hide" : "Show"} Cards</CommandItem>
           <CommandItem onSelect={() => handleResultsShownClicked()}>{isResultsShown ? "Hide" : "Show"} Results</CommandItem>
+          <CommandItem onSelect={() => handleKeepMenuOpen()}>{isKeepMenuOpen ? "Do Not" : "Do"} Keep Menu Open</CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
