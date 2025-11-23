@@ -2,6 +2,7 @@ import type { OptionType } from "@/components/Card";
 
 import { Card } from "@/components/Card";
 import { HorizontalSwap } from "@/components/HorizontalSwap";
+import { getWinStatus } from "@/lib/getWinStatus";
 
 interface ResultsProps {
   userChoice?: OptionType;
@@ -16,31 +17,6 @@ export function Results({
   winner,
   turn,
 }: ResultsProps) {
-  function getUserWinStatus(winner: string) {
-    if (winner === "user") {
-      return "winner";
-    }
-    if (winner === "tie") {
-      return "tie";
-    }
-    if (winner === "comp") {
-      return "loser";
-    }
-    return "neutral";
-  }
-  function getCompWinStatus(winner: string) {
-    if (winner === "user") {
-      return "loser";
-    }
-    if (winner === "tie") {
-      return "tie";
-    }
-    if (winner === "comp") {
-      return "winner";
-    }
-    return "neutral";
-  }
-
   return (
     <div className="flex flex-grow-1 flex-col">
       <h2 className="mb-4 text-2xl font-bold">Results</h2>
@@ -53,7 +29,7 @@ export function Results({
               <Card
                 icon={userChoice}
                 text="You"
-                type={getUserWinStatus(winner)}
+                type={getWinStatus(true, winner)}
               />
             </HorizontalSwap>
           </div>
@@ -67,7 +43,7 @@ export function Results({
               <Card
                 icon={compChoice}
                 text="Comp"
-                type={getCompWinStatus(winner)}
+                type={getWinStatus(false, winner)}
               />
             </HorizontalSwap>
           </div>
