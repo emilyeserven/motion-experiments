@@ -45,7 +45,12 @@ export function Game() {
 
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
 
-        <div className="flex flex-row justify-center gap-4">
+        <div
+          className={`
+            inset-1 flex flex-row justify-center gap-4 rounded-sm bg-gray-100
+            py-8
+          `}
+        >
           <Card
             icon="rock"
             text="Rock"
