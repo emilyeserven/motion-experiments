@@ -2,7 +2,7 @@ import type { OptionType } from "@/components/Card";
 
 import { Card } from "@/components/Card";
 import { HorizontalSwap } from "@/components/HorizontalSwap";
-import { getWinStatus } from "@/lib/getWinStatus";
+import { getWinStatus } from "@/utils/getWinStatus";
 
 interface ResultsProps {
   userChoice?: OptionType;

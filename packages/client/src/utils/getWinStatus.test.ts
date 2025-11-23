@@ -1,4 +1,4 @@
-import { getWinStatus } from "@/lib/getWinStatus";
+import { getWinStatus } from "@/utils/getWinStatus";
 import { describe, expect, test } from "vitest";
 
 describe("getWinStatus", () => {
