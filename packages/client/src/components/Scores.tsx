@@ -1,3 +1,5 @@
+import { SwapContent } from "@/components/SwapContent";
+
 interface ScoresProps {
   userScore: number;
   compScore: number;
@@ -13,12 +15,16 @@ export function Scores({
       <div className="mb-2.5">
         User Score is now:
         {" "}
-        <span id="userScore">{userScore}</span>
+        <span id="userScore">
+          <SwapContent content={userScore} />
+        </span>
       </div>
       <div className="mb-2.5">
         Computer Score is now:
         {" "}
-        <span id="compScore">{compScore}</span>
+        <span id="compScore">
+          <SwapContent content={compScore} />
+        </span>
       </div>
     </div>
   );

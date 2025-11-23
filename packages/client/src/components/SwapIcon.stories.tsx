@@ -6,7 +6,7 @@ const meta = {
   component: SwapIcon,
   argTypes: {
     icon: {
-      type: "radio",
+      type: "select",
       options: ["rock", "paper", "scissors"],
     },
   },
