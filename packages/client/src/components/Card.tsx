@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { getItemEmoji } from "@/utils/getItemEmoji";
+import { getRandomTilt } from "@/utils/getRandomTilt";
 
 export type OptionType = "rock" | "paper" | "scissors";
 export type CardType = "neutral" | "winner" | "loser" | "tie";
@@ -24,12 +25,12 @@ export function Card({
       id={icon}
       className={cn(
         `
-          mx-[1%] inline-flex flex-col gap-2 rounded-lg border-2 border-gray-300
-          bg-gray-200 px-2 py-2 text-center align-top shadow transition-all
-          duration-200 ease-in-out
+          inset-1 mx-[1%] inline-flex flex-col gap-2 rounded-lg border-2
+          border-gray-300 bg-gray-200 px-2 py-2 text-center align-top
+          drop-shadow-lg duration-200 ease-in-out
         `,
         {
-          "cursor-pointer hover:border-gray-400 hover:shadow-md active:border-green-800 active:bg-green-200": onClick,
+          "cursor-pointer hover:border-gray-400 hover:drop-shadow-xs active:border-green-800 active:bg-green-200 active:drop-shadow-none": onClick,
           "border-green-800 bg-green-200": type === "winner",
           "border-red-800 bg-red-200": type === "loser",
           "border-slate-800 bg-slate-200": type === "tie",
@@ -40,6 +41,7 @@ export function Card({
         onClick
           ? {
             opacity: 0.95,
+            rotate: getRandomTilt(icon),
           }
           : {}
       }
@@ -48,7 +50,7 @@ export function Card({
           ? {
             scale: 1.01,
             opacity: 1,
-            rotate: Math.random(),
+            rotate: 0,
             transition: {
               duration: 0.1,
             },
@@ -58,8 +60,7 @@ export function Card({
       whileTap={
         onClick
           ? {
-            scale: 1.02,
-            rotate: -1 * Math.random() * 2,
+            scale: 1.05,
             transition: {
               duration: 0.05,
             },
