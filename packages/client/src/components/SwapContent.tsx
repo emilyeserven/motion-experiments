@@ -27,9 +27,9 @@ export function SwapContent({
           transition={{
             duration: 0.2,
           }}
-          className="text-xl"
+          className={content ? "text-xl" : "text-xl text-gray-400"}
         >
-          {content ? content : "😋"}
+          {content ? content : "0"}
         </motion.span>
       </AnimatePresence>
     </div>

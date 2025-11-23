@@ -1,4 +1,4 @@
-export const getWinStatus = function (isCheckForUser: boolean, winStatus: string) {
+export const getWinStatus = function (isCheckForUser: boolean, winStatus?: string) {
   if (winStatus === "tie") {
     return "tie";
   }

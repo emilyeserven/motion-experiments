@@ -1,4 +1,4 @@
-export function getItemEmoji(choice: string) {
+export function getItemEmoji(choice?: string) {
   if (choice === "rock") {
     return "🪨";
   }
@@ -8,5 +8,5 @@ export function getItemEmoji(choice: string) {
   if (choice === "scissors") {
     return "✂️";
   }
-  return "";
+  return "❓";
 };

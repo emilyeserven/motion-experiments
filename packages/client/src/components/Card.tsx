@@ -7,7 +7,7 @@ export type OptionType = "rock" | "paper" | "scissors";
 export type CardType = "neutral" | "winner" | "loser" | "tie";
 
 interface GameButtonParams {
-  icon: OptionType;
+  icon?: OptionType;
   type?: CardType;
   text?: string;
   onClick?: (selection: OptionType) => void;
@@ -35,7 +35,7 @@ export function Card({
           "border-slate-800 bg-slate-200": type === "tie",
         },
       )}
-      onClick={onClick ? () => onClick(icon) : undefined}
+      onClick={onClick && icon ? () => onClick(icon) : undefined}
       initial={
         onClick
           ? {
@@ -71,7 +71,7 @@ export function Card({
 
       <div className="rounded-md bg-white px-4 py-6">
         <span
-          className="text-8xl"
+          className={!icon ? "text-8xl opacity-80" : "text-8xl"}
           data-testid="card-emoji"
         >
           {getItemEmoji(icon)}

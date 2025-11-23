@@ -24,10 +24,6 @@ export function ResultArea({
   winner,
   turn,
 }: ResultAreaProps) {
-  if (!userChoice && !compChoice) {
-    return <></>;
-  }
-
   return (
     <motion.div
       className={`
@@ -47,33 +43,29 @@ export function ResultArea({
       <div className="flex flex-grow-1 flex-col">
         <h2 className="mb-4 text-2xl font-bold">Results</h2>
         <div className="flex flex-row flex-wrap gap-8">
-          {userChoice && winner && (
-            <div className="flex flex-col">
-              <HorizontalSwap
-                key={turn + ""}
-              >
-                <Card
-                  icon={userChoice}
-                  text="You"
-                  type={getWinStatus(true, winner)}
-                />
-              </HorizontalSwap>
-            </div>
-          )}
-          {compChoice && winner && (
-            <div className="flex flex-col">
-              <HorizontalSwap
-                key={turn + ""}
-                isFromLeft={false}
-              >
-                <Card
-                  icon={compChoice}
-                  text="Comp"
-                  type={getWinStatus(false, winner)}
-                />
-              </HorizontalSwap>
-            </div>
-          )}
+          <div className="flex flex-col">
+            <HorizontalSwap
+              key={turn + ""}
+            >
+              <Card
+                icon={userChoice}
+                text="You"
+                type={getWinStatus(true, winner)}
+              />
+            </HorizontalSwap>
+          </div>
+          <div className="flex flex-col">
+            <HorizontalSwap
+              key={turn + ""}
+              isFromLeft={false}
+            >
+              <Card
+                icon={compChoice}
+                text="Comp"
+                type={getWinStatus(false, winner)}
+              />
+            </HorizontalSwap>
+          </div>
         </div>
       </div>
       <div className="flex flex-grow-1 flex-col">

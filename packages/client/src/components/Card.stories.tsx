@@ -102,3 +102,12 @@ export const Tie: Story = {
     await expect(canvas.getByTestId("card-emoji")).toHaveTextContent("🪨");
   },
 };
+
+export const Empty: Story = {
+  args: {
+    icon: undefined,
+    type: "neutral",
+    text: "Empty",
+    onClick: undefined,
+  },
+};
