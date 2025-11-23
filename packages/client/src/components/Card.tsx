@@ -72,7 +72,12 @@ export function Card({
 
       <div className="rounded-md bg-white px-4 py-6">
         <span
-          className={!icon ? "text-8xl opacity-80" : "text-8xl"}
+          className={!icon
+            ? "text-8xl opacity-80"
+            : `
+              text-5xl
+              md:text-8xl
+            `}
           data-testid="card-emoji"
         >
           {getItemEmoji(icon)}
