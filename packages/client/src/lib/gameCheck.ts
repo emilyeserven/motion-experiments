@@ -2,15 +2,15 @@ type gameCheckType = Record<string, Record<string, [string, string]>>;
 
 export const gameCheck: gameCheckType = {
   rock: {
-    paper: ["rock wins", "user"],
-    scissors: ["paper wins", "comp"],
+    paper: ["paper wins", "comp"],
+    scissors: ["rock wins", "user"],
   },
   paper: {
     rock: ["paper wins", "user"],
     scissors: ["scissors win", "comp"],
   },
   scissors: {
-    paper: ["rock wins", "comp"],
-    rock: ["scissors win", "user"],
+    paper: ["scissors wins", "user"],
+    rock: ["rock win", "comp"],
   },
 };
