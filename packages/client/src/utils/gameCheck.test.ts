@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { gameCheck } from "@/lib/gameCheck";
+import { gameCheck } from "@/utils/gameCheck";
 
 describe("gameCheck logic", () => {
   // --- User chooses ROCK (gameCheck.rock) ---
