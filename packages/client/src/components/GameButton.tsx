@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 import { itemEmoji } from "@/lib/itemEmoji";
 
-type OptionType = "rock" | "paper" | "scissors";
+export type OptionType = "rock" | "paper" | "scissors";
 
 interface GameButtonParams {
   type: OptionType;

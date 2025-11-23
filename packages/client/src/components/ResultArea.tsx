@@ -1,11 +1,13 @@
+import type { OptionType } from "@/components/GameButton";
+
 import { motion } from "motion/react";
 
 import { Results } from "@/components/Results";
 import { Scores } from "@/components/Scores";
 
 interface ResultAreaProps {
-  userChoice: string;
-  compChoice: string;
+  userChoice: OptionType;
+  compChoice: OptionType;
   userScore: number;
   compScore: number;
 }
@@ -16,7 +18,7 @@ export function ResultArea({
   compChoice,
   compScore,
 }: ResultAreaProps) {
-  if (userChoice === "" && compChoice === "") {
+  if (!userChoice && !compChoice) {
     return <></>;
   }
 
