@@ -3,14 +3,18 @@ import { motion } from "motion/react";
 import { itemEmoji } from "@/lib/itemEmoji";
 
 export type OptionType = "rock" | "paper" | "scissors";
+type CardType = "neutral" | "user" | "computer";
 
 interface GameButtonParams {
   icon: OptionType;
-  onClick: (selection: OptionType) => void;
+  type?: CardType;
+  text?: string;
+  onClick?: (selection: OptionType) => void;
 }
 
 export function Card({
   icon,
+  text,
   onClick,
 }: GameButtonParams) {
   return (
@@ -23,7 +27,7 @@ export function Card({
         hover:border-gray-400 hover:shadow-md
         active:border-green-800 active:bg-green-200
       `}
-      onClick={() => onClick(icon)}
+      onClick={onClick ? () => onClick(icon) : undefined}
       initial={{
         opacity: 0.95,
       }}
@@ -49,7 +53,7 @@ export function Card({
         </span>
       </div>
 
-      <span className="relative bottom-0 text-[25px] capitalize">{icon}</span>
+      <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
     </motion.div>
   );
 }

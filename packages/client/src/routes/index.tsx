@@ -50,14 +50,17 @@ function Index() {
         <div className="flex flex-row justify-center gap-4">
           <Card
             icon="rock"
+            text="Rock"
             onClick={userChoiceFunc}
           />
           <Card
             icon="paper"
+            text="Paper"
             onClick={userChoiceFunc}
           />
           <Card
             icon="scissors"
+            text="Scissors"
             onClick={userChoiceFunc}
           />
 
