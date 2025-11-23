@@ -5,8 +5,8 @@ import { SwapCard } from "./SwapCard";
 const meta = {
   component: SwapCard,
   argTypes: {
-    icon: {
-      type: "select",
+    key: {
+      control: "radio",
       options: ["rock", "paper", "scissors"],
     },
   },
@@ -18,6 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    icon: "rock",
+    key: "rock",
+    children: <>Test</>,
   },
 };

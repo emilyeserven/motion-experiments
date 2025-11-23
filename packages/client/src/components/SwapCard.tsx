@@ -1,28 +1,21 @@
-import type { CardType, OptionType } from "@/components/Card";
-
 import { AnimatePresence, motion } from "motion/react";
 
-import { Card } from "@/components/Card";
-import { itemEmoji } from "@/lib/itemEmoji";
-
 interface SwapIconProps {
-  icon: OptionType;
-  text?: string;
-  type?: CardType;
+  key: string;
   isFromLeft?: boolean;
+  children: React.ReactNode;
 }
 
 export function SwapCard({
-  icon,
-  text,
-  type = "neutral",
+  key,
   isFromLeft = true,
+  children,
 }: SwapIconProps) {
   return (
     <div className="flex flex-1 items-center justify-center">
       <AnimatePresence mode="wait">
         <motion.div
-          key={icon ? itemEmoji(icon) : "empty"}
+          key={key}
           initial={{
             x: isFromLeft ? -10 : 10,
             opacity: 0,
@@ -39,11 +32,7 @@ export function SwapCard({
             duration: 0.2,
           }}
         >
-          <Card
-            icon={icon}
-            text={text}
-            type={type}
-          />
+          {children}
         </motion.div>
       </AnimatePresence>
     </div>

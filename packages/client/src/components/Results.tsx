@@ -1,5 +1,6 @@
 import type { OptionType } from "@/components/Card";
 
+import { Card } from "@/components/Card";
 import { SwapCard } from "@/components/SwapCard";
 
 interface ResultsProps {
@@ -46,21 +47,29 @@ export function Results({
           <div className="flex flex-col">
             <span>User Choice</span>
             <SwapCard
-              icon={userChoice}
-              text="You"
-              type={getUserWinStatus(winner)}
-            />
+              key={userChoice}
+            >
+              <Card
+                icon={userChoice}
+                text="You"
+                type={getUserWinStatus(winner)}
+              />
+            </SwapCard>
           </div>
         )}
         {compChoice && winner && (
           <div className="flex flex-col">
             <span>Computer Choice</span>
             <SwapCard
-              icon={compChoice}
-              text="Comp"
+              key={compChoice}
               isFromLeft={false}
-              type={getCompWinStatus(winner)}
-            />
+            >
+              <Card
+                icon={compChoice}
+                text="Comp"
+                type={getCompWinStatus(winner)}
+              />
+            </SwapCard>
           </div>
         )}
       </div>
