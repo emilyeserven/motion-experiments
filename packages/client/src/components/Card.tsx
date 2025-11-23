@@ -47,13 +47,14 @@ export function Card({
         },
       }}
     >
+      <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
+
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
           {itemEmoji(icon)}
         </span>
       </div>
 
-      <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
     </motion.div>
   );
 }
