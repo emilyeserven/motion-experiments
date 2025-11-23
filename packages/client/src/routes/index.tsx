@@ -78,20 +78,6 @@ function Index() {
           winner={winner}
           turn={turn}
         />
-
-        <div className="mt-5 w-full text-center">
-          <sub className="inline-block">
-            <a
-              href="https://icons8.com/web-app/tag/rock-paper-scissor"
-              className={`
-                text-blue-600
-                hover:underline
-              `}
-            >
-              Icons from icons8
-            </a>
-          </sub>
-        </div>
       </div>
     </div>
   );
