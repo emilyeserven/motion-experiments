@@ -15,15 +15,15 @@ describe("getItemEmoji", () => {
   });
 
   it("should return an empty string for an unknown choice", () => {
-    expect(getItemEmoji("lizard")).toBe("");
+    expect(getItemEmoji("lizard")).toBe("❓");
   });
 
   it("should return an empty string for an empty input string", () => {
-    expect(getItemEmoji("")).toBe("");
+    expect(getItemEmoji("")).toBe("❓");
   });
 
   it("should return an empty string for a choice with incorrect casing", () => {
     // The function is case-sensitive, so this should fail the checks.
-    expect(getItemEmoji("Rock")).toBe("");
+    expect(getItemEmoji("Rock")).toBe("❓");
   });
 });
