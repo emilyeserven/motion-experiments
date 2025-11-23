@@ -21,6 +21,7 @@ export function Card({
         border-gray-300 bg-gray-200 px-2 py-2 text-center align-top shadow
         transition-all duration-200 ease-in-out
         hover:border-gray-400 hover:shadow-md
+        active:border-green-800 active:bg-green-200
       `}
       onClick={() => onClick(type)}
       initial={{
