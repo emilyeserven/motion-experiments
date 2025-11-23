@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 
+import { itemEmoji } from "@/lib/itemEmoji";
+
 type OptionType = "rock" | "paper" | "scissors";
 
 interface GameButtonParams {
@@ -11,18 +13,6 @@ export function GameButton({
   type,
   onClick,
 }: GameButtonParams) {
-  const itemEmoji = {
-    rock: {
-      icon: "🪨",
-    },
-    paper: {
-      icon: "📄",
-    },
-    scissors: {
-      icon: "✂️",
-    },
-  };
-
   return (
     <motion.div
       id={type}
@@ -54,7 +44,7 @@ export function GameButton({
     >
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
-          {itemEmoji[type].icon}
+          {itemEmoji(type)}
         </span>
       </div>
 
