@@ -12,7 +12,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    userChoice: "userChoice",
-    compChoice: "compChoice",
+    userChoice: "rock",
+    compChoice: "rock",
+    winner: "tie",
+    turn: 0,
   },
 };

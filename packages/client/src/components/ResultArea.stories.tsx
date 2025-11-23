@@ -16,14 +16,18 @@ export const Default: Story = {
     compChoice: "rock",
     userScore: 0,
     compScore: 0,
+    winner: undefined,
+    turn: 0,
   },
 };
 
 export const Hidden: Story = {
   args: {
-    userChoice: "",
-    compChoice: "",
+    userChoice: undefined,
+    compChoice: undefined,
     userScore: 0,
     compScore: 0,
+    winner: undefined,
+    turn: 0,
   },
 };

@@ -14,5 +14,6 @@ export const Default: Story = {
   args: {
     userScore: 0,
     compScore: 0,
+    turn: 0,
   },
 };
