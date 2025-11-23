@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
-import { itemEmoji } from "@/lib/itemEmoji";
 import { cn } from "@/lib/utils";
+import { getItemEmoji } from "@/utils/getItemEmoji";
 
 export type OptionType = "rock" | "paper" | "scissors";
 export type CardType = "neutral" | "winner" | "loser" | "tie";
@@ -71,7 +71,7 @@ export function Card({
 
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
-          {itemEmoji(icon)}
+          {getItemEmoji(icon)}
         </span>
       </div>
 
