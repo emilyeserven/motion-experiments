@@ -23,7 +23,7 @@ export function Results({
         )}
         {compChoice && (
           <div className="flex flex-col">
-            <span>Computer Score</span>
+            <span>Computer Choice</span>
             <SwapIcon
               icon={compChoice}
               isFromLeft={false}
