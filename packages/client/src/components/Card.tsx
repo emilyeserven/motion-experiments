@@ -68,14 +68,20 @@ export function Card({
           : {}
       }
     >
-      <span className="fun-font relative bottom-0 text-[25px]">{text ? text : icon}</span>
+      <span
+        className={`
+          fun-font relative bottom-0 text-lg
+          md:text-2xl
+        `}
+      >{text ? text : icon}
+      </span>
 
       <div className="rounded-md bg-white px-4 py-6">
         <span
           className={!icon
             ? "text-8xl opacity-80"
             : `
-              text-5xl
+              text-3xl
               md:text-8xl
             `}
           data-testid="card-emoji"
