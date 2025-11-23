@@ -16,7 +16,7 @@ export function Logo() {
   const textColor = colorBlack;
 
   return (
-    <div className="px-4 py-4">
+    <div className="px-8 py-4">
       <motion.svg
         width={250 * 2}
         height={66 * 2}
@@ -64,11 +64,11 @@ export function Logo() {
                 type: "tween",
                 duration: 1,
                 bounce: 0,
-                delay: 0.1,
+                delay: 0,
               },
               fill: {
                 type: "tween",
-                delay: 1.1,
+                delay: 1,
               },
             }}
           />
@@ -87,11 +87,11 @@ export function Logo() {
                 type: "tween",
                 duration: 1,
                 bounce: 0,
-                delay: 0.2,
+                delay: 0,
               },
               fill: {
                 type: "tween",
-                delay: 1.2,
+                delay: 1,
               },
             }}
           />
@@ -150,24 +150,83 @@ export function Logo() {
         </>
         <>
           {/* S in Brackets */}
-          <path
+          <motion.path
             d="M34.486 75.2015L34.43 75.1455L60.822 48.7535C61.254 48.3215 61.347 47.8235 61.347 47.4835C61.347 47.1475 61.254 46.6495 60.822 46.2175L58.078 43.4735C51.979 37.3745 51.978 27.4855 58.077 21.3855L74.556 4.90446C79.912 -0.451537 88.595 -0.452537 93.951 4.90346L94.032 4.98446L67.856 31.1645C67.157 31.8635 67.157 32.9965 67.856 33.6955L70.6 36.4395C76.701 42.5405 76.701 52.4315 70.6 58.5325L53.931 75.2015C48.562 80.5705 39.856 80.5705 34.486 75.2015Z"
-            fill={sFillColor}
             stroke={sStrokeColor}
+            fill={sFillColor}
             strokeWidth="0.5"
+            initial={{
+              opacity: 0,
+              scale: 0.95,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              opacity: {
+                type: "tween",
+                duration: 0.5,
+                bounce: 0,
+                delay: 0.15,
+              },
+              scale: {
+                type: "tween",
+                delay: 0.15,
+                duration: 0.5,
+              },
+            }}
           />
 
           {/* Left Bracket */}
-          <path
+          <motion.path
             d="M28.811 68.8735L0 40.0665L28.811 11.2545L38.59 21.0335L19.557 40.0665L38.59 59.0955L28.811 68.8735Z"
             fill={bracketColor}
+            initial={{
+              opacity: 0,
+              x: 20,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              opacity: {
+                type: "tween",
+                duration: 0.5,
+                bounce: 0,
+              },
+              x: {
+                type: "tween",
+                duration: 0.5,
+              },
+            }}
           />
         </>
 
         {/* Right Bracket */}
-        <path
+        <motion.path
           d="M99.673 68.8735L89.894 59.0955L108.923 40.0665L89.894 21.0335L99.673 11.2545L128.481 40.0665L99.673 68.8735Z"
           fill={bracketColor}
+          initial={{
+            opacity: 0,
+            x: -20,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            opacity: {
+              type: "tween",
+              duration: 0.5,
+              bounce: 0,
+            },
+            x: {
+              type: "tween",
+              duration: 0.5,
+            },
+          }}
         />
       </motion.svg>
     </div>
