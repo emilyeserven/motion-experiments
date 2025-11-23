@@ -3,6 +3,7 @@ import type { OptionType } from "@/components/Card";
 import { useCallback, useState } from "react";
 
 import { Card } from "@/components/Card";
+import { CommandK } from "@/components/CommandK";
 import { ResultArea } from "@/components/ResultArea";
 import { compare } from "@/lib/compare";
 import { computerRoll } from "@/lib/computerRoll";
@@ -39,6 +40,7 @@ export function Game() {
 
   return (
     <div className="font-sans text-gray-900">
+      <CommandK choiceFunc={userChoiceFunc} />
       <div
         className="mx-auto mt-2.5 w-full max-w-[800px] p-4"
       >
