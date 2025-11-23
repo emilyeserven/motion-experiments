@@ -11,6 +11,7 @@ interface ResultAreaProps {
   userScore: number;
   compScore: number;
   winner?: string;
+  turn: number;
 }
 
 export function ResultArea({
@@ -19,6 +20,7 @@ export function ResultArea({
   compChoice,
   compScore,
   winner,
+  turn,
 }: ResultAreaProps) {
   if (!userChoice && !compChoice) {
     return <></>;
@@ -44,6 +46,7 @@ export function ResultArea({
         userChoice={userChoice}
         compChoice={compChoice}
         winner={winner}
+        turn={turn}
       />
       <Scores
         userScore={userScore}

@@ -7,12 +7,14 @@ interface ResultsProps {
   userChoice?: OptionType;
   compChoice?: OptionType;
   winner?: string;
+  turn: number;
 }
 
 export function Results({
   userChoice,
   compChoice,
   winner,
+  turn,
 }: ResultsProps) {
   function getUserWinStatus(winner: string) {
     if (winner === "user") {
@@ -47,7 +49,7 @@ export function Results({
           <div className="flex flex-col">
             <span>User Choice</span>
             <HorizontalSwap
-              key={userChoice}
+              key={turn + ""}
             >
               <Card
                 icon={userChoice}
@@ -61,7 +63,7 @@ export function Results({
           <div className="flex flex-col">
             <span>Computer Choice</span>
             <HorizontalSwap
-              key={compChoice}
+              key={turn + ""}
               isFromLeft={false}
             >
               <Card

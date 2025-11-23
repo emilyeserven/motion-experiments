@@ -14,6 +14,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [turn, setTurn] = useState(0);
   const [userScore, setUserScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
   const [userChoice, setUserChoice] = useState<OptionType>();
@@ -32,6 +33,7 @@ function Index() {
     setCompChoice(computerChoice as OptionType);
     setUserChoice(userChoice);
     setWinner(result[1]);
+    setTurn(turn + 1);
 
     if (result[1] === "user") {
       setUserScore(userScore + 1);
@@ -39,7 +41,7 @@ function Index() {
     else if (result[1] === "comp") {
       setCompScore(compScore + 1);
     }
-  }, [compScore, userScore]);
+  }, [compScore, userScore, turn]);
 
   return (
     <div className="font-sans text-gray-900">
@@ -74,6 +76,7 @@ function Index() {
           userScore={userScore}
           compScore={compScore}
           winner={winner}
+          turn={turn}
         />
 
         <div className="mt-5 w-full text-center">
