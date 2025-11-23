@@ -6,7 +6,7 @@ interface SwapIconProps {
   children: React.ReactNode;
 }
 
-export function SwapCard({
+export function HorizontalSwap({
   key,
   isFromLeft = true,
   children,
