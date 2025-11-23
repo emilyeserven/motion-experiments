@@ -70,7 +70,10 @@ export function Card({
       <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
 
       <div className="rounded-md bg-white px-4 py-6">
-        <span className="text-8xl">
+        <span
+          className="text-8xl"
+          data-testid="card-emoji"
+        >
           {getItemEmoji(icon)}
         </span>
       </div>
