@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { SwapIcon } from "./SwapIcon";
+import { SwapCard } from "./SwapCard";
 
 const meta = {
-  component: SwapIcon,
+  component: SwapCard,
   argTypes: {
     icon: {
       type: "select",
       options: ["rock", "paper", "scissors"],
     },
   },
-} satisfies Meta<typeof SwapIcon>;
+} satisfies Meta<typeof SwapCard>;
 
 export default meta;
 
