@@ -14,20 +14,23 @@ export function Results({
   return (
     <div className="flex flex-grow-1 flex-col">
       <h2 className="mb-4 text-2xl font-bold">Results</h2>
-      {userChoice && (
-        <div className="mb-2.5">
-          User Choice was:
-          {" "}
-          <SwapIcon icon={userChoice} />
-        </div>
-      )}
-      {compChoice && (
-        <div className="mb-2.5">
-          Computer Score was:
-          {" "}
-          <SwapIcon icon={compChoice} />
-        </div>
-      )}
+      <div className="flex flex-row flex-wrap gap-8">
+        {userChoice && (
+          <div className="flex flex-col">
+            <span>User Choice</span>
+            <SwapIcon icon={userChoice} />
+          </div>
+        )}
+        {compChoice && (
+          <div className="flex flex-col">
+            <span>Computer Score</span>
+            <SwapIcon
+              icon={compChoice}
+              isFromLeft={false}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

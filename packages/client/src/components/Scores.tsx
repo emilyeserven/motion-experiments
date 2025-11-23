@@ -12,19 +12,15 @@ export function Scores({
   return (
     <div className="flex flex-grow-1 flex-col">
       <h2 className="mb-4 text-2xl font-bold">Score</h2>
-      <div className="mb-2.5">
-        User Score is now:
-        {" "}
-        <span id="userScore">
+      <div className="mb-2.5 flex gap-8">
+        <div className="flex flex-col">
+          <span>User Score</span>
           <SwapContent content={userScore} />
-        </span>
-      </div>
-      <div className="mb-2.5">
-        Computer Score is now:
-        {" "}
-        <span id="compScore">
+        </div>
+        <div className="flex flex-col">
+          <span>Computer Score</span>
           <SwapContent content={compScore} />
-        </span>
+        </div>
       </div>
     </div>
   );

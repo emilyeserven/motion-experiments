@@ -1,6 +1,6 @@
 export const computerRoll = function () {
   const computerChoice = Math.random();
-  let computerReturn = "";
+  let computerReturn;
   // Above will select a random number between 0 and 1 and store that number in the computerChoice variable.
   // Below if statement will assign Rock, Paper, or Scissors to the number.
   if (computerChoice < 0.34) {

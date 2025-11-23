@@ -6,8 +6,8 @@ import { Results } from "@/components/Results";
 import { Scores } from "@/components/Scores";
 
 interface ResultAreaProps {
-  userChoice: OptionType;
-  compChoice: OptionType;
+  userChoice?: OptionType;
+  compChoice?: OptionType;
   userScore: number;
   compScore: number;
 }

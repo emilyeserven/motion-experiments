@@ -1,3 +1,5 @@
+import type { OptionType } from "@/components/Card";
+
 import { useCallback, useState } from "react";
 
 import { createFileRoute } from "@tanstack/react-router";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [userScore, setUserScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
-  const [userChoice, setUserChoice] = useState("");
-  const [compChoice, setCompChoice] = useState("");
+  const [userChoice, setUserChoice] = useState<OptionType>();
+  const [compChoice, setCompChoice] = useState<OptionType>();
 
-  const userChoiceFunc = useCallback((choice: string) => {
+  const userChoiceFunc = useCallback((choice: OptionType) => {
     // set the function input to be the variable userChoice.
     const userChoice = choice;
 
@@ -26,7 +28,7 @@ function Index() {
 
     const result = compare(userChoice, computerChoice);
 
-    setCompChoice(computerChoice);
+    setCompChoice(computerChoice as OptionType);
     setUserChoice(userChoice);
 
     if (result[1] === "user") {
