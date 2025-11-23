@@ -30,6 +30,9 @@ export function Game() {
     setCompChoice(computerChoice as OptionType);
     setUserChoice(userChoice);
     setWinner(result[1]);
+    if (turn === 0) {
+      setIsResultsShown(true);
+    }
     setTurn(turn + 1);
 
     if (result[1] === "user") {
