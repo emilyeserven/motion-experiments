@@ -26,11 +26,11 @@ export function Card({
       className={cn(
         `
           inset-1 mx-[1%] inline-flex flex-col gap-2 rounded-lg border-2
-          border-gray-300 bg-gray-200 px-2 py-2 text-center align-top shadow-lg
-          duration-200 ease-in-out
+          border-gray-300 bg-gray-200 px-2 py-2 text-center align-top
+          drop-shadow-lg duration-200 ease-in-out
         `,
         {
-          "cursor-pointer hover:border-gray-400 hover:shadow-sm active:border-green-800 active:bg-green-200 active:shadow-xs": onClick,
+          "cursor-pointer hover:border-gray-400 hover:drop-shadow-xs active:border-green-800 active:bg-green-200 active:drop-shadow-none": onClick,
           "border-green-800 bg-green-200": type === "winner",
           "border-red-800 bg-red-200": type === "loser",
           "border-slate-800 bg-slate-200": type === "tie",
@@ -60,8 +60,7 @@ export function Card({
       whileTap={
         onClick
           ? {
-            scale: 1.02,
-            rotate: -1 * Math.random() * 2,
+            scale: 1.05,
             transition: {
               duration: 0.05,
             },

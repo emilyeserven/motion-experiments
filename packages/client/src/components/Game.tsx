@@ -60,8 +60,8 @@ export function Game() {
         { isCardsShown && (
           <div
             className={`
-              inset-1 flex flex-row justify-center gap-4 rounded-sm bg-gray-100
-              py-8
+              inset-1 flex flex-row justify-center gap-4 rounded-sm
+              bg-gray-100/50 py-8 shadow-xs
             `}
           >
             <Card
