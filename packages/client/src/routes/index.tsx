@@ -42,14 +42,12 @@ function Index() {
   return (
     <div className="font-sans text-gray-900">
       <div
-        className={`
-          mx-auto mt-2.5 w-full max-w-[800px] border-2 border-[#eee] p-4
-        `}
+        className="mx-auto mt-2.5 w-full max-w-[800px] p-4"
       >
 
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
 
-        <div className="w-full">
+        <div className="flex flex-row justify-center gap-4">
           <Card
             icon="rock"
             onClick={userChoiceFunc}
