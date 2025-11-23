@@ -47,7 +47,6 @@ export function Results({
       <div className="flex flex-row flex-wrap gap-8">
         {userChoice && winner && (
           <div className="flex flex-col">
-            <span>User Choice</span>
             <HorizontalSwap
               key={turn + ""}
             >
@@ -61,7 +60,6 @@ export function Results({
         )}
         {compChoice && winner && (
           <div className="flex flex-col">
-            <span>Computer Choice</span>
             <HorizontalSwap
               key={turn + ""}
               isFromLeft={false}

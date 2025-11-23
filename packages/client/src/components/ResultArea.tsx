@@ -51,6 +51,7 @@ export function ResultArea({
       <Scores
         userScore={userScore}
         compScore={compScore}
+        turn={turn}
       />
     </motion.div>
   );
