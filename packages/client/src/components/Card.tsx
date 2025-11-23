@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 
 import { itemEmoji } from "@/lib/itemEmoji";
+import { cn } from "@/lib/utils";
 
 export type OptionType = "rock" | "paper" | "scissors";
-type CardType = "neutral" | "user" | "computer";
+export type CardType = "neutral" | "winner" | "loser" | "tie";
 
 interface GameButtonParams {
   icon: OptionType;
@@ -15,37 +16,56 @@ interface GameButtonParams {
 export function Card({
   icon,
   text,
+  type,
   onClick,
 }: GameButtonParams) {
   return (
     <motion.div
       id={icon}
-      className={`
-        mx-[1%] inline-flex cursor-pointer flex-col gap-2 rounded-lg border-2
-        border-gray-300 bg-gray-200 px-2 py-2 text-center align-top shadow
-        transition-all duration-200 ease-in-out
-        hover:border-gray-400 hover:shadow-md
-        active:border-green-800 active:bg-green-200
-      `}
+      className={cn(
+        `
+          mx-[1%] inline-flex flex-col gap-2 rounded-lg border-2 border-gray-300
+          bg-gray-200 px-2 py-2 text-center align-top shadow transition-all
+          duration-200 ease-in-out
+        `,
+        {
+          "cursor-pointer hover:border-gray-400 hover:shadow-md active:border-green-800 active:bg-green-200": onClick,
+          "border-green-800 bg-green-200": type === "winner",
+          "border-red-800 bg-red-200": type === "loser",
+          "border-slate-800 bg-slate-200": type === "tie",
+        },
+      )}
       onClick={onClick ? () => onClick(icon) : undefined}
-      initial={{
-        opacity: 0.95,
-      }}
-      whileHover={{
-        scale: 1.01,
-        opacity: 1,
-        rotate: Math.random(),
-        transition: {
-          duration: 0.1,
-        },
-      }}
-      whileTap={{
-        scale: 1.02,
-        rotate: -1 * Math.random() * 2,
-        transition: {
-          duration: 0.05,
-        },
-      }}
+      initial={
+        onClick
+          ? {
+            opacity: 0.95,
+          }
+          : {}
+      }
+      whileHover={
+        onClick
+          ? {
+            scale: 1.01,
+            opacity: 1,
+            rotate: Math.random(),
+            transition: {
+              duration: 0.1,
+            },
+          }
+          : {}
+      }
+      whileTap={
+        onClick
+          ? {
+            scale: 1.02,
+            rotate: -1 * Math.random() * 2,
+            transition: {
+              duration: 0.05,
+            },
+          }
+          : {}
+      }
     >
       <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
 

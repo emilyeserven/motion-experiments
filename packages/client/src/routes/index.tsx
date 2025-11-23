@@ -18,6 +18,7 @@ function Index() {
   const [compScore, setCompScore] = useState(0);
   const [userChoice, setUserChoice] = useState<OptionType>();
   const [compChoice, setCompChoice] = useState<OptionType>();
+  const [winner, setWinner] = useState("tie");
 
   const userChoiceFunc = useCallback((choice: OptionType) => {
     // set the function input to be the variable userChoice.
@@ -30,6 +31,7 @@ function Index() {
 
     setCompChoice(computerChoice as OptionType);
     setUserChoice(userChoice);
+    setWinner(result[1]);
 
     if (result[1] === "user") {
       setUserScore(userScore + 1);
@@ -71,6 +73,7 @@ function Index() {
           compChoice={compChoice}
           userScore={userScore}
           compScore={compScore}
+          winner={winner}
         />
 
         <div className="mt-5 w-full text-center">

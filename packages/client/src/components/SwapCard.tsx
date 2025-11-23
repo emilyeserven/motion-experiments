@@ -1,4 +1,4 @@
-import type { OptionType } from "@/components/Card";
+import type { CardType, OptionType } from "@/components/Card";
 
 import { AnimatePresence, motion } from "motion/react";
 
@@ -8,12 +8,14 @@ import { itemEmoji } from "@/lib/itemEmoji";
 interface SwapIconProps {
   icon: OptionType;
   text?: string;
+  type?: CardType;
   isFromLeft?: boolean;
 }
 
 export function SwapCard({
   icon,
   text,
+  type = "neutral",
   isFromLeft = true,
 }: SwapIconProps) {
   return (
@@ -40,6 +42,7 @@ export function SwapCard({
           <Card
             icon={icon}
             text={text}
+            type={type}
           />
         </motion.div>
       </AnimatePresence>
