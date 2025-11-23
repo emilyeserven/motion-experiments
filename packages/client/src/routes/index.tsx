@@ -51,15 +51,15 @@ function Index() {
 
         <div className="w-full">
           <Card
-            type="rock"
+            icon="rock"
             onClick={userChoiceFunc}
           />
           <Card
-            type="paper"
+            icon="paper"
             onClick={userChoiceFunc}
           />
           <Card
-            type="scissors"
+            icon="scissors"
             onClick={userChoiceFunc}
           />
 

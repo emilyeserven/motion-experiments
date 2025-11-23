@@ -5,17 +5,17 @@ import { itemEmoji } from "@/lib/itemEmoji";
 export type OptionType = "rock" | "paper" | "scissors";
 
 interface GameButtonParams {
-  type: OptionType;
+  icon: OptionType;
   onClick: (selection: OptionType) => void;
 }
 
 export function Card({
-  type,
+  icon,
   onClick,
 }: GameButtonParams) {
   return (
     <motion.div
-      id={type}
+      id={icon}
       className={`
         mx-[1%] inline-flex cursor-pointer flex-col gap-2 rounded-lg border-2
         border-gray-300 bg-gray-200 px-2 py-2 text-center align-top shadow
@@ -23,7 +23,7 @@ export function Card({
         hover:border-gray-400 hover:shadow-md
         active:border-green-800 active:bg-green-200
       `}
-      onClick={() => onClick(type)}
+      onClick={() => onClick(icon)}
       initial={{
         opacity: 0.95,
       }}
@@ -45,11 +45,11 @@ export function Card({
     >
       <div className="rounded-md bg-white px-4 py-6">
         <span className="text-8xl">
-          {itemEmoji(type)}
+          {itemEmoji(icon)}
         </span>
       </div>
 
-      <span className="relative bottom-0 text-[25px] capitalize">{type}</span>
+      <span className="relative bottom-0 text-[25px] capitalize">{icon}</span>
     </motion.div>
   );
 }
