@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-import { GameButton } from "@/components/GameButton";
+import { Card } from "@/components/Card";
 import { ResultArea } from "@/components/ResultArea";
 import { compare } from "@/lib/compare";
 import { computerRoll } from "@/lib/computerRoll";
@@ -48,15 +48,15 @@ function Index() {
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
 
         <div className="w-full">
-          <GameButton
+          <Card
             type="rock"
             onClick={userChoiceFunc}
           />
-          <GameButton
+          <Card
             type="paper"
             onClick={userChoiceFunc}
           />
-          <GameButton
+          <Card
             type="scissors"
             onClick={userChoiceFunc}
           />

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { GameButton } from "./GameButton";
+import { Card } from "./Card";
 
 const meta = {
-  component: GameButton,
-} satisfies Meta<typeof GameButton>;
+  component: Card,
+} satisfies Meta<typeof Card>;
 
 export default meta;
 

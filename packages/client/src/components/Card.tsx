@@ -9,7 +9,7 @@ interface GameButtonParams {
   onClick: (selection: OptionType) => void;
 }
 
-export function GameButton({
+export function Card({
   type,
   onClick,
 }: GameButtonParams) {

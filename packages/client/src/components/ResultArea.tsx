@@ -1,4 +1,4 @@
-import type { OptionType } from "@/components/GameButton";
+import type { OptionType } from "@/components/Card";
 
 import { motion } from "motion/react";
 
