@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource/caveat";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,5 +120,8 @@
     }
     body {
         @apply bg-background text-foreground;
+    }
+    .fun-font {
+        font-family: 'Caveat'
     }
 }

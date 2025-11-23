@@ -49,6 +49,9 @@ importers:
       '@fastify/static':
         specifier: ^8.3.0
         version: 8.3.0
+      '@fontsource/caveat':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -721,6 +724,9 @@ packages:
 
   '@fastify/type-provider-json-schema-to-ts@5.0.0':
     resolution: {integrity: sha512-erEJvxucxc09XLdHygdQua4QFyxBp+QParhXl3hrB6UvE2R6ZB9KG6TznUTz6I5HK7t5xm/vn4DG7EIOAPOO4w==}
+
+  '@fontsource/caveat@5.2.8':
+    resolution: {integrity: sha512-9fUUfFE2IQFKbx+xOcaeQxxmh8iJguEb8z+j1PeueO4UUx+XfT4pRm/B04ZDvFA794/iRxY/IibmP8ZKtIf4rw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -4946,6 +4952,8 @@ snapshots:
   '@fastify/type-provider-json-schema-to-ts@5.0.0':
     dependencies:
       json-schema-to-ts: 3.1.1
+
+  '@fontsource/caveat@5.2.8': {}
 
   '@humanfs/core@0.19.1': {}
 

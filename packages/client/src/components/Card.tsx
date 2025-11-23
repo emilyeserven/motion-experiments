@@ -68,7 +68,7 @@ export function Card({
           : {}
       }
     >
-      <span className="relative bottom-0 text-[25px]">{text ? text : icon}</span>
+      <span className="fun-font relative bottom-0 text-[25px]">{text ? text : icon}</span>
 
       <div className="rounded-md bg-white px-4 py-6">
         <span
