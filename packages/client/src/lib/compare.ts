@@ -1,4 +1,4 @@
-import { gameCheck } from "@/lib/gameCheck";
+import { gameCheck } from "@/utils/gameCheck";
 
 export const compare = (choice1: string, choice2: string) => {
   if (!(choice1 in gameCheck) || !(choice2 in gameCheck)) {

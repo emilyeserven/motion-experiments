@@ -26,6 +26,13 @@ const RootComponent: React.FunctionComponent = () => {
           About
         </Link>
 
+        <Link
+          to="/logo"
+          className="[&.active]:font-bold"
+        >
+          Logo
+        </Link>
+
         {
           theme === "dark"
             ? (
