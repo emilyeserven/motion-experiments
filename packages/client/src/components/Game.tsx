@@ -15,6 +15,8 @@ export function Game() {
   const [userChoice, setUserChoice] = useState<OptionType>();
   const [compChoice, setCompChoice] = useState<OptionType>();
   const [winner, setWinner] = useState("tie");
+  const [isCardsShown, setIsCardsShown] = useState(true);
+  const [isResultsShown, setIsResultsShown] = useState(false);
 
   const userChoiceFunc = useCallback((choice: OptionType) => {
     // set the function input to be the variable userChoice.
@@ -40,45 +42,53 @@ export function Game() {
 
   return (
     <div className="font-sans text-gray-900">
-      <CommandK choiceFunc={userChoiceFunc} />
+      <CommandK
+        choiceFunc={userChoiceFunc}
+        isCardsShown={isCardsShown}
+        setIsCardsShown={setIsCardsShown}
+        setIsResultsShown={setIsResultsShown}
+        isResultsShown={isResultsShown}
+      />
       <div
         className="mx-auto mt-2.5 w-full max-w-[800px] p-4"
       >
 
         <h1 className="mt-0 mb-4 text-3xl font-bold">Rock, Paper, Scissors!</h1>
+        { isCardsShown && (
+          <div
+            className={`
+              inset-1 flex flex-row justify-center gap-4 rounded-sm bg-gray-100
+              py-8
+            `}
+          >
+            <Card
+              icon="rock"
+              text="Rock"
+              onClick={userChoiceFunc}
+            />
+            <Card
+              icon="paper"
+              text="Paper"
+              onClick={userChoiceFunc}
+            />
+            <Card
+              icon="scissors"
+              text="Scissors"
+              onClick={userChoiceFunc}
+            />
 
-        <div
-          className={`
-            inset-1 flex flex-row justify-center gap-4 rounded-sm bg-gray-100
-            py-8
-          `}
-        >
-          <Card
-            icon="rock"
-            text="Rock"
-            onClick={userChoiceFunc}
+          </div>
+        )}
+        {isResultsShown && (
+          <ResultArea
+            userChoice={userChoice}
+            compChoice={compChoice}
+            userScore={userScore}
+            compScore={compScore}
+            winner={winner}
+            turn={turn}
           />
-          <Card
-            icon="paper"
-            text="Paper"
-            onClick={userChoiceFunc}
-          />
-          <Card
-            icon="scissors"
-            text="Scissors"
-            onClick={userChoiceFunc}
-          />
-
-        </div>
-
-        <ResultArea
-          userChoice={userChoice}
-          compChoice={compChoice}
-          userScore={userScore}
-          compScore={compScore}
-          winner={winner}
-          turn={turn}
-        />
+        )}
       </div>
     </div>
   );

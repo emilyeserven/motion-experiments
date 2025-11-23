@@ -1,4 +1,5 @@
 import type { OptionType } from "@/components/Card";
+import type { Dispatch, SetStateAction } from "react";
 
 import { useEffect, useState } from "react";
 
@@ -8,15 +9,23 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
+  CommandList, CommandSeparator,
 } from "@/components/command";
 
 interface CommandKProps {
   choiceFunc: (selection: OptionType) => void;
+  setIsCardsShown: Dispatch<SetStateAction<boolean>>;
+  isCardsShown: boolean;
+  setIsResultsShown: Dispatch<SetStateAction<boolean>>;
+  isResultsShown: boolean;
 }
 
 export function CommandK({
   choiceFunc,
+  setIsCardsShown,
+  isCardsShown,
+  setIsResultsShown,
+  isResultsShown,
 }: CommandKProps) {
   const [open, setOpen] = useState(false);
 
@@ -36,6 +45,16 @@ export function CommandK({
     setOpen(false);
   }
 
+  function handleCardsShownClicked() {
+    setIsCardsShown(!isCardsShown);
+    setOpen(false);
+  }
+
+  function handleResultsShownClicked() {
+    setIsResultsShown(!isResultsShown);
+    setOpen(false);
+  }
+
   return (
     <CommandDialog
       open={open}
@@ -44,10 +63,15 @@ export function CommandK({
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
-          <CommandItem onSelect={() => handleSelection("rock")}>Play Rock</CommandItem>
-          <CommandItem onSelect={() => handleSelection("paper")}>Play Paper</CommandItem>
-          <CommandItem onSelect={() => handleSelection("scissors")}>Play Scissors</CommandItem>
+        <CommandGroup heading="Play">
+          <CommandItem onSelect={() => handleSelection("rock")}>Rock</CommandItem>
+          <CommandItem onSelect={() => handleSelection("paper")}>Paper</CommandItem>
+          <CommandItem onSelect={() => handleSelection("scissors")}>Scissors</CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Settings">
+          <CommandItem onSelect={() => handleCardsShownClicked()}>{isCardsShown ? "Hide" : "Show"} Cards</CommandItem>
+          <CommandItem onSelect={() => handleResultsShownClicked()}>{isResultsShown ? "Hide" : "Show"} Results</CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
