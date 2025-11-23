@@ -1,3 +1,6 @@
+import { AnimatePresence } from "motion/react";
+import * as motion from "motion/react-client";
+
 import { itemEmoji } from "@/lib/itemEmoji";
 
 interface ResultsProps {
@@ -23,7 +26,29 @@ export function Results({
         <div className="mb-2.5">
           Computer Score was:
           {" "}
-          <span id="compChoice">{itemEmoji(compChoice)}</span>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={compChoice ? itemEmoji(compChoice) : "empty"}
+              initial={{
+                x: 10,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              exit={{
+                x: -10,
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
+              className="text-xl"
+            >
+              {compChoice ? itemEmoji(compChoice) : "😋"}
+            </motion.span>
+          </AnimatePresence>
         </div>
       )}
     </div>
