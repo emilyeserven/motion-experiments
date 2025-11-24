@@ -69,8 +69,5 @@
     "routeTree": "tsr generate",
     "storybook": "storybook dev -p 6006"
   },
-  "lint-staged": {
-    "*": "eslint --fix"
-  },
   "type": "module"
 }
