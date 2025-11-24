@@ -70,7 +70,7 @@ export function Card({
     >
       <span
         className={`
-          fun-font relative bottom-0 text-xl
+          relative bottom-0 fun-font text-xl
           md:text-2xl
         `}
       >{text ? text : icon}
